@@ -12,7 +12,6 @@ import { Check } from "lucide-react";
 
 import { Input } from "./ui/input";
 
-import Retell from "retell-sdk";
 import { toast } from "@/hooks/use-toast";
 
 const Navigation = ({ agentname = "JARVIS", id }) => {

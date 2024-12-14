@@ -15,10 +15,6 @@ import { Input } from "./ui/input";
 import Retell from "retell-sdk";
 import { toast } from "@/hooks/use-toast";
 
-const client = new Retell({
-  apiKey: process.env.NEXT_PUBLIC_apiKey,
-});
-
 const Navigation = ({ agentname = "JARVIS", id }) => {
   const [editing, setEditing] = useState(false);
 

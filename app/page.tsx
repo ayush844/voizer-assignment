@@ -6,7 +6,7 @@ import { DataTable } from "./data-table";
 import Retell from "retell-sdk";
 
 const client = new Retell({
-  apiKey: "key_cfd6458f5c6cfb9812cc66a96c00",
+  apiKey: process.env.NEXT_PUBLIC_apiKey,
 });
 
 async function getData(): Promise<Payment[]> {

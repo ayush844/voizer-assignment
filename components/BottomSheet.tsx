@@ -25,7 +25,7 @@ export function SheetSide() {
         </SheetTrigger>
         <SheetContent side="bottom">
           <SheetHeader>
-            <SheetTitle>Edit profile</SheetTitle>
+            <SheetTitle>Message</SheetTitle>
             <SheetDescription>
               Due to my semester exams and time constraints, I was unable to
               complete all the required functionalities for this assignment.

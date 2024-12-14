@@ -1,22 +1,15 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
-import Link from "next/link";
 
 import { Pencil } from "lucide-react";
 import { Check } from "lucide-react";
 
-import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import { Input } from "./ui/input";
 
 import Retell from "retell-sdk";
@@ -33,43 +26,43 @@ const Navigation = ({ agentname = "JARVIS", id }) => {
 
   console.log("id is ", id);
 
-  const updateAgent = async () => {
-    if (editing) {
-      if (id && typeof id == "string") {
-        try {
-          // Update the agent by passing agent_name in the request body
-          const agentResponse = await client.agent.update(id, {
-            response_engine: {
-              type: "retell-llm",
-              llm_id: "llm_234sdertfsdsfsdf",
-            },
-            agent_name: agent,
-          });
+  // const updateAgent = async () => {
+  //   if (editing) {
+  //     if (id && typeof id == "string") {
+  //       try {
+  //         // Update the agent by passing agent_name in the request body
+  //         const agentResponse = await client.agent.update(id, {
+  //           response_engine: {
+  //             type: "retell-llm",
+  //             llm_id: "llm_234sdertfsdsfsdf",
+  //           },
+  //           agent_name: agent,
+  //         });
 
-          setEditing(false);
+  //         setEditing(false);
 
-          console.log(agentResponse.agent_id); // Log the updated agent's ID
-          console.log(agentResponse.agent_name); // Log the updated agent's name
-        } catch (error) {
-          console.error("Error updating agent:", error);
-          if (error.response) {
-            console.error("API Response:", error.response.data); // If error is API related
-          } else {
-            console.error("Network or connection error");
-          }
-        }
-      }
-    } else {
-      setEditing(true);
-    }
-  };
+  //         console.log(agentResponse.agent_id); // Log the updated agent's ID
+  //         console.log(agentResponse.agent_name); // Log the updated agent's name
+  //       } catch (error) {
+  //         console.error("Error updating agent:", error);
+  //         if (error.response) {
+  //           console.error("API Response:", error.response.data); // If error is API related
+  //         } else {
+  //           console.error("Network or connection error");
+  //         }
+  //       }
+  //     }
+  //   } else {
+  //     setEditing(true);
+  //   }
+  // };
 
   const updateAgent2 = () => {
     if (editing) {
       toast({
         title: "Using useState to upadte name in navigation",
         description:
-          "was trying to use the Update Agent API but encountered a Connection error. For more details, please refer to the updateAgent function in @/components/Navigation.tsx.",
+          "was trying to use the Update Agent API but encountered a Connection error. For more details, please refer to the updateAgent function (commented) in @/components/Navigation.tsx.",
       });
     }
     setEditing((ed) => !ed);

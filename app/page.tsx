@@ -15,7 +15,7 @@ async function getData(): Promise<Payment[]> {
   const agentResponses = await client.agent.list();
 
   // Transform the response to only include the required fields
-  const filteredAgents = agentResponses.map((agent: any) => ({
+  const filteredAgents = agentResponses.map((agent) => ({
     id: agent.agent_id, // Extract id
     voice_id: agent.voice_id, // Extract voice_id
     agent_name: agent.agent_name, // Extract agent_name

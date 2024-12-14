@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
-import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -32,7 +31,7 @@ export function ProfileForm() {
     defaultValues,
   });
 
-  const { watch, control, handleSubmit } = form;
+  const { watch, control } = form;
 
   // Watch all form values
   const formValues = watch();
@@ -84,7 +83,7 @@ export function ProfileForm() {
   );
 }
 
-function TextareaWithLabel({ control }: { control: any }) {
+function TextareaWithLabel({ control }: { control }) {
   return (
     <FormField
       control={control}

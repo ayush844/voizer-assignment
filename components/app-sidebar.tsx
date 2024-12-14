@@ -1,16 +1,8 @@
 "use client";
 
 import * as React from "react";
-import {
-  Hash,
-  Command,
-  Settings,
-  AudioLines,
-  Calendar,
-  Trash2,
-} from "lucide-react";
+import { Hash, Settings, AudioLines, Calendar } from "lucide-react";
 
-import { NavUser } from "@/components/nav-user";
 // import { Label } from "@/components/ui/label";
 
 import { Calendar as CalenderComponent } from "@/components/ui/calendar";
@@ -21,7 +13,6 @@ import { Label } from "@/components/ui/label";
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarHeader,
@@ -29,15 +20,10 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
   useSidebar,
 } from "@/components/ui/sidebar";
 import { Switch } from "@/components/ui/switch";
 import { AlertDemo } from "./Alert";
-import { cn } from "@/lib/utils";
-import { Slider } from "./ui/slider";
 import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
 
 import Retell from "retell-sdk";
@@ -79,88 +65,6 @@ const data = {
       isActive: false,
     },
   ],
-  mails: [
-    {
-      name: "William Smith",
-      email: "williamsmith@example.com",
-      subject: "Meeting Tomorrow",
-      date: "09:34 AM",
-      teaser:
-        "Hi team, just a reminder about our meeting tomorrow at 10 AM.\nPlease come prepared with your project updates.",
-    },
-    {
-      name: "Alice Smith",
-      email: "alicesmith@example.com",
-      subject: "Re: Project Update",
-      date: "Yesterday",
-      teaser:
-        "Thanks for the update. The progress looks great so far.\nLet's schedule a call to discuss the next steps.",
-    },
-    {
-      name: "Bob Johnson",
-      email: "bobjohnson@example.com",
-      subject: "Weekend Plans",
-      date: "2 days ago",
-      teaser:
-        "Hey everyone! I'm thinking of organizing a team outing this weekend.\nWould you be interested in a hiking trip or a beach day?",
-    },
-    {
-      name: "Emily Davis",
-      email: "emilydavis@example.com",
-      subject: "Re: Question about Budget",
-      date: "2 days ago",
-      teaser:
-        "I've reviewed the budget numbers you sent over.\nCan we set up a quick call to discuss some potential adjustments?",
-    },
-    {
-      name: "Michael Wilson",
-      email: "michaelwilson@example.com",
-      subject: "Important Announcement",
-      date: "1 week ago",
-      teaser:
-        "Please join us for an all-hands meeting this Friday at 3 PM.\nWe have some exciting news to share about the company's future.",
-    },
-    {
-      name: "Sarah Brown",
-      email: "sarahbrown@example.com",
-      subject: "Re: Feedback on Proposal",
-      date: "1 week ago",
-      teaser:
-        "Thank you for sending over the proposal. I've reviewed it and have some thoughts.\nCould we schedule a meeting to discuss my feedback in detail?",
-    },
-    {
-      name: "David Lee",
-      email: "davidlee@example.com",
-      subject: "New Project Idea",
-      date: "1 week ago",
-      teaser:
-        "I've been brainstorming and came up with an interesting project concept.\nDo you have time this week to discuss its potential impact and feasibility?",
-    },
-    {
-      name: "Olivia Wilson",
-      email: "oliviawilson@example.com",
-      subject: "Vacation Plans",
-      date: "1 week ago",
-      teaser:
-        "Just a heads up that I'll be taking a two-week vacation next month.\nI'll make sure all my projects are up to date before I leave.",
-    },
-    {
-      name: "James Martin",
-      email: "jamesmartin@example.com",
-      subject: "Re: Conference Registration",
-      date: "1 week ago",
-      teaser:
-        "I've completed the registration for the upcoming tech conference.\nLet me know if you need any additional information from my end.",
-    },
-    {
-      name: "Sophia White",
-      email: "sophiawhite@example.com",
-      subject: "Team Dinner",
-      date: "1 week ago",
-      teaser:
-        "To celebrate our recent project success, I'd like to organize a team dinner.\nAre you available next Friday evening? Please let me know your preferences.",
-    },
-  ],
 };
 
 const analytics = [
@@ -190,168 +94,13 @@ const analytics = [
   },
 ];
 
-const data2 = {
-  navMain: [
-    {
-      title: "Getting Started",
-      url: "#",
-      items: [
-        {
-          title: "Installation",
-          url: "#",
-        },
-        {
-          title: "Project Structure",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Building Your Application",
-      url: "#",
-      items: [
-        {
-          title: "Routing",
-          url: "#",
-        },
-        {
-          title: "Data Fetching",
-          url: "#",
-          isActive: true,
-        },
-        {
-          title: "Rendering",
-          url: "#",
-        },
-        {
-          title: "Caching",
-          url: "#",
-        },
-        {
-          title: "Styling",
-          url: "#",
-        },
-        {
-          title: "Optimizing",
-          url: "#",
-        },
-        {
-          title: "Configuring",
-          url: "#",
-        },
-        {
-          title: "Testing",
-          url: "#",
-        },
-        {
-          title: "Authentication",
-          url: "#",
-        },
-        {
-          title: "Deploying",
-          url: "#",
-        },
-        {
-          title: "Upgrading",
-          url: "#",
-        },
-        {
-          title: "Examples",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "API Reference",
-      url: "#",
-      items: [
-        {
-          title: "Components",
-          url: "#",
-        },
-        {
-          title: "File Conventions",
-          url: "#",
-        },
-        {
-          title: "Functions",
-          url: "#",
-        },
-        {
-          title: "next.config.js Options",
-          url: "#",
-        },
-        {
-          title: "CLI",
-          url: "#",
-        },
-        {
-          title: "Edge Runtime",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Architecture",
-      url: "#",
-      items: [
-        {
-          title: "Accessibility",
-          url: "#",
-        },
-        {
-          title: "Fast Refresh",
-          url: "#",
-        },
-        {
-          title: "Next.js Compiler",
-          url: "#",
-        },
-        {
-          title: "Supported Browsers",
-          url: "#",
-        },
-        {
-          title: "Turbopack",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Community",
-      url: "#",
-      items: [
-        {
-          title: "Contribution Guide",
-          url: "#",
-        },
-      ],
-    },
-  ],
-};
-
-type Voice = {
-  voice_id: string;
-  voice_name: string;
-  provider: string;
-  accent: string;
-  gender: string;
-  age: string;
-  preview_audio_url: string;
-};
-
-type VoicesArray = Voice[];
-
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   // Note: I'm using state to show active item.
   // IRL you should use the url/router.
   const [activeItem, setActiveItem] = React.useState(data.navMain[0]);
-  const [mails, setMails] = React.useState(data.mails);
   const { setOpen } = useSidebar();
 
   const [date, setDate] = React.useState<Date | undefined>(new Date());
-
-  let defaultSliderValue: number[] = [33];
 
   const [accents, setAccents] = React.useState<(string | undefined)[]>([]);
 
@@ -409,13 +158,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                       }}
                       onClick={() => {
                         setActiveItem(item);
-                        const mail = data.mails.sort(() => Math.random() - 0.5);
-                        setMails(
-                          mail.slice(
-                            0,
-                            Math.max(5, Math.floor(Math.random() * 10) + 1)
-                          )
-                        );
+
                         setOpen(true);
                       }}
                       isActive={activeItem.title === item.title}
@@ -438,9 +181,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </SidebarGroupContent>
           </SidebarGroup>
         </SidebarContent>
-        {/* <SidebarFooter>
-          <NavUser user={data.user} />
-        </SidebarFooter> */}
       </Sidebar>
 
       {/* This is the second sidebar */}
@@ -458,34 +198,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarGroup className="px-5">
             <SidebarGroupContent>
               {activeItem.title != "Select voice" && <AlertDemo />}
-              {/* {mails.map((mail) => ( */}
-              {/* <a
-                href="#"
-                className="flex flex-col items-start gap-2 whitespace-nowrap border-b p-4 text-sm leading-tight last:border-b-0 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-              >
-                <div className="flex w-full items-center gap-2">
-                  <span>Ayush</span>{" "}
-                  <span className="ml-auto text-xs">3 Dec, 2024</span>
-                </div>
-                <span className="font-medium">time waste</span>
-                <span className="line-clamp-2 w-[260px] whitespace-break-spaces text-xs">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Beatae mollitia nobis animi accusamus vel dignissimos
-                  voluptates soluta distinctio maiores obcaecati asperiores
-                  labore placeat, sapiente rem ipsam perferendis in suscipit
-                  unde deserunt velit quis libero! Sunt vel, eligendi,
-                  cupiditate quibusdam consequuntur optio ad maiores cum unde
-                  voluptatem officiis odio ratione modi debitis rem, eaque minus
-                  non perferendis eveniet. Iure quidem quia doloremque aliquam
-                  adipisci voluptas animi, aut eaque hic quod saepe magni non
-                  rem nihil. Dolorem expedita, ipsam assumenda asperiores magnam
-                  accusantium! Nemo laudantium magnam saepe ut labore dolore
-                  quam, quidem unde tenetur aspernatur totam dicta aliquid eum
-                  delectus culpa vero!
-                </span>
-              </a> */}
-
-              {/* ))} */}
 
               {activeItem.title == "Select voice" && (
                 <SidebarMenu className="gap-6">
@@ -501,22 +213,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                               {item}
                             </h2>
 
-                            <div
-                              // isActive={item.isActive}
-                              className=" w-full bg-gray-100 flex flex-col gap-2"
-                            >
-                              {/* <a href={item.url}>{item.title}</a> */}
-
-                              {/* {voices
-                                .filter((v) => v.accent == item)
-                                .map((a) => (
-                                  <VoiceBar
-                                    key={a.voice_id}
-                                    gender={a.gender}
-                                    voiceName={a.voice_name}
-                                  />
-                                ))} */}
-
+                            <div className=" w-full bg-gray-100 flex flex-col gap-2">
                               {voices
                                 .filter((v) => v.accent === item)
                                 .map((a) => (
@@ -529,20 +226,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                             </div>
                           </div>
                         </SidebarMenuButton>
-                        {/* {item.items?.length ? (
-                        <SidebarMenuSub className="ml-0 border-l-0 px-1.5">
-                          {item.items.map((item) => (
-                            <SidebarMenuSubItem key={item.title}>
-                              <SidebarMenuSubButton
-                                asChild
-                                isActive={item.isActive}
-                              >
-                                <a href={item.url}>{item.title}</a>
-                              </SidebarMenuSubButton>
-                            </SidebarMenuSubItem>
-                          ))}
-                        </SidebarMenuSub>
-                      ) : null} */}
                       </SidebarMenuItem>
                     ))}
                 </SidebarMenu>

@@ -6,7 +6,6 @@ import flags from "react-phone-number-input/flags";
 
 import { cn } from "@/lib/utils";
 
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
   Popover,
@@ -51,8 +50,6 @@ type PhoneInputProps = {
 };
 
 const PhoneInput: React.FC<PhoneInputProps> = ({
-  value,
-  onChange,
   countries = [
     { label: "Afghanistan", code: "AF" },
     { label: "Albania", code: "AL" },

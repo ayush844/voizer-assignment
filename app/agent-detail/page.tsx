@@ -1,11 +1,9 @@
 "use client";
 
-import { useRouter } from "next/navigation"; // Correct import
 import React, { useEffect, useState } from "react";
 
 import { ProfileForm } from "@/components/AgentForm";
 import Navigation from "@/components/Navigation";
-import { ResizableDemo } from "@/components/Resizable";
 import { TabsDemo } from "@/components/Tabs";
 
 import Retell from "retell-sdk";
@@ -19,7 +17,6 @@ const client = new Retell({
 const Page = () => {
   const [agent_name, setAgentName] = useState<string>("");
 
-  const router = useRouter();
   const [id, setId] = useState<string | null>(null);
 
   useEffect(() => {
